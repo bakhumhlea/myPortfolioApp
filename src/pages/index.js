@@ -1,20 +1,27 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import Header from '../components/header'
 import Layout from '../components/layout'
 import Image from '../components/image'
 
 const IndexPage = () => (
   <Layout>
-    <header>
-      <h1>aka Tatuu</h1>
-    </header>
-    <h2>I'm <br />Thanaphon</h2>
-    <p>Welcome to your new Gatsby site.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-      <Image />
+    <Header />
+    <div className="hero">
+      <div className="heroGroup">
+        <h2>Hi, I'm <br />THANAPHON</h2>
+        <p>Welcome to my world!</p>
+        <p className="breif-me">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <Link to="/about/">More about me  
+          <button className="btn arrow">
+            GO
+          </button>
+        </Link>
+      </div>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 

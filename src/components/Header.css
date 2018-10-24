@@ -1,0 +1,87 @@
+.header {
+    font-family: 'Montserrat';
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    padding: 6px 0;
+    z-index: 100;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,0.25);
+    opacity: 0;
+    animation: FadeDownAnimation 1.2s 1s forwards cubic-bezier(0.2,0.8,0.2,1);
+}
+.header-group {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    align-items: center;
+    justify-items: center;
+}
+.logo {
+    cursor: crosshair;
+    display: inline;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 8px;
+    transition: 1s 0s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.logo:hover {
+    transform: rotateZ(270deg);
+}
+.app-name {
+    display: inline;
+    font-family: 'Josefin Sans';
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0;
+}
+.header-group a {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 8px;
+    transition: 0.5s 0s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.header-group a:hover {
+    transform: translateY(-3px);
+}
+@media (max-width: 640px) {
+    .header {
+        padding: 4px 0;
+    }
+    .header-group {
+        grid-template-columns: repeat(5, auto);
+    }
+    .header-group .logo {
+        font-size: 0.8rem;
+    }
+    .header-group h1 {
+        font-size: 1rem
+    }
+    .header-group a {
+        font-size: 0.7rem;
+    }
+    
+}
+
+@keyframes FadeDownAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes FadeUpAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
