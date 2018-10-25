@@ -25,6 +25,10 @@ a {
   max-width: 75vw;
   margin: 0 auto;
 }
+.heroGroup a {
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
 .hero h2 {
   position: relative;
   font-family: 'Josefin Sans';
@@ -40,18 +44,69 @@ a {
   opacity: 0;
   animation: FadeUpAnimation 1.2s 0.75s forwards cubic-bezier(0.2,0.8,0.2,1);
 }
-button.btn.arrow {
+a.link-to-works {
+  position: relative;
+  display: block;
+  height: 4rem;
+  opacity: 0;
+  animation: FadeUpAnimation 1.2s 1s forwards cubic-bezier(0.2,0.8,0.2,1);
+}
+a.link-to-works div {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+}
+.btn-group {
+  position: absolute;
+  left: 120px;
+  top: 50%;
+  display: inline-block;
   cursor: pointer;
   color: white;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 50%;
-  margin: 10px;
-  height: 2rem;
-  width: 2rem;
+  width: 1.2rem;
+  height: 1.6rem;
+  border: 0px solid rgb(255, 255, 255);
+  margin: 0 0 0 8px;
   background-color: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  transition: 1s 0s all cubic-bezier(0.1, 0.8, 0.2, 1);
 }
-button.btn.arrow:hover {
-  box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.5);
+.btn-group:hover {
+  width: 76px;
+}
+.btn-group .box {
+  z-index: 20;
+  position: absolute;
+  right: 0;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: rgba(228, 0, 0, 1);
+  transition: 1s 0s all cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+.btn-group:hover .box {
+  width: 2px;
+}
+.btn-group .box:hover {
+  animation: MoveRight 2s ease-in-out forwards;
+}
+@keyframes MoveRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(76px);
+  }
+}
+.btn-group .text {
+  position: relative;
+  left: 0px;
+  bottom: 0px;
+  display: block;
+}
+.btn-group:hover {
+  /*box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.5);*/
 }
 
 @media (max-width: 640px) {
@@ -65,4 +120,26 @@ button.btn.arrow:hover {
     font-size: 0.8rem;
     margin: 10px auto;
   }
+}
+
+.hidden-box {
+  position: relative;
+  cursor: help;
+  width: max-content;
+  font-family: 'Josefin Sans';
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: hidden;
+}
+.hidden-box.show {
+  cursor: copy;
+}
+.hidden-text {
+  transform: translateX(-100%);
+  transition: 0.8s 0s all cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+.hidden-box.show .hidden-text {
+  transform: translateX(0);
 }

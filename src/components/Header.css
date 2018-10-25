@@ -1,28 +1,37 @@
 .header {
     font-family: 'Montserrat';
     position: fixed;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
     width: 100%;
     padding: 6px 0;
     z-index: 100;
     box-shadow: 0 0 4px 0 rgba(0,0,0,0.25);
     opacity: 0;
-    animation: FadeDownAnimation 1.2s 1s forwards cubic-bezier(0.2,0.8,0.2,1);
+    animation: FadeDownAnimation 0.5s forwards 0s cubic-bezier(0.2,0.8,0.2,1);
+    transition: 1s 0s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    backdrop-filter: blur(20px);
+}
+.header.scrolled {
+    animation: HeaderUp 0.5s forwards 0s cubic-bezier(0.2,0.8,0.2,1);
 }
 .header-group {
     max-width: 800px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: 30% 40% 10% 10% 10%;
     align-items: center;
     justify-items: center;
 }
 .logo {
     cursor: crosshair;
-    display: inline;
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
     font-size: 1.2rem;
+    text-align: center;
     font-weight: 700;
-    padding: 8px;
+    padding: 0.1rem;
+    border-radius: 50%;
     transition: 1s 0s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .logo:hover {
@@ -34,12 +43,16 @@
     font-size: 1.4rem;
     font-weight: 400;
     letter-spacing: 2px;
+    /*padding: 0 220px 0 0;*/
     margin: 0;
+    background: linear-gradient(104deg, #da1414, #07abd4, #9530e7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .header-group a {
     font-size: 0.8rem;
     font-weight: 600;
-    padding: 8px;
+    padding: 8px 0px;
     transition: 0.5s 0s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .header-group a:hover {
@@ -50,10 +63,13 @@
         padding: 4px 0;
     }
     .header-group {
-        grid-template-columns: repeat(5, auto);
+        grid-template-columns: auto auto 16% 16% 16%;
     }
     .header-group .logo {
+        width: 0.9rem;
+        height: 0.9rem;
         font-size: 0.8rem;
+        text-align: center;
     }
     .header-group h1 {
         font-size: 1rem
@@ -83,5 +99,16 @@
     100% {
         opacity: 1;
         transform: translateY(0px);
+    }
+}
+
+@keyframes HeaderUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50px);
     }
 }
