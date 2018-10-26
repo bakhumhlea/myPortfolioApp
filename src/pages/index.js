@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
+import styled from 'styled-components'
 
 import Header from '../components/header'
 import Layout from '../components/layout'
+import Section from '../components/Section';
+
+const ScrollBtn = styled.button`
+  cursor: pointer;
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  border: none;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 0.8rem;
+  width: 100%;
+  padding: 4px 0 10px 0;
+  background-color: transparent;
+  outline: none;
+`
 
 const IndexPage = () => (
   <Layout>
@@ -22,10 +39,57 @@ const IndexPage = () => (
           </div>
         </Link>
         <Btn />
+        <div className="hidden-box">
+          <h4 className="hidden-text">Hello! I'm Tatuu!</h4>
+        </div>
       </div>
     </div>
+    <Section />
+    <FooterBar />
   </Layout>
 )
+
+class FooterBar extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      scrolledHalf : false
+    }
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.scrolled);
+  }
+  scrollTo = (event) => {
+    event.preventDefault();
+    const windowH = window.innerHeight;
+    console.log(windowH);
+    if(this.state.scrolledHalf) {
+      window.scrollTo(0,0);
+    } else {
+      window.scrollTo(0, windowH);
+    }
+  }
+  scrolled = () => {
+    const halfWinH = window.innerHeight / 2;
+    const hasScrolled = window.pageYOffset;
+    console.log(hasScrolled+","+halfWinH);
+    if(hasScrolled>halfWinH) {
+      this.setState({scrolledHalf: true});
+    } else {
+      this.setState({scrolledHalf: false});
+    }
+    
+  }
+  render() {
+    return (
+      <div>
+        <ScrollBtn onClick={(event)=>this.scrollTo(event)}>Scroll {this.state.scrolledHalf? 'Up':'Down'}</ScrollBtn>
+      </div>
+    );
+  }
+}
+
 class Btn extends Component {
   constructor(props) {
     super(props);
