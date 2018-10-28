@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'aka Tatuu | Portfolio',
+    description: 'Tatuu is a San Francisco based web developer.',
+    keywords: 'web developer, web designer, portfolio'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -26,5 +28,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: 'qkthrflj8i4q',
+        accessToken: '6b93606ba1e34acac7049fe0a4db9e572bba843628a0da7875cca88be59b5b67',
+      }
+    },
   ],
 }
